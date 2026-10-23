@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pkgContent",
+      "name": "content",
+      "pages": [
+        "pages/gallery/gallery",
+        "pages/preview/preview"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "all",
+      "packages": ["content"]
+    }
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#FFF6EC",
+    "navigationBarTitleText": "宝宝认一认",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFF6EC"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

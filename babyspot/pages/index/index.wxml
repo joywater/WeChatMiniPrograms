@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="hero">
+    <text class="hero-title">0-3岁认一认</text>
+    <text class="hero-sub">点一点，听一听，宝宝跟着念</text>
+  </view>
+
+  <!-- 主卡片：标题左上 + 插画右下 -->
+  <view class="main-grid">
+    <view
+      wx:for="{{mainCards}}"
+      wx:key="id"
+      class="main-card"
+      style="background: linear-gradient(155deg, {{item.light}} 0%, #FFFFFF 130%);"
+      data-id="{{item.id}}"
+      data-name="{{item.name}}"
+      bindtap="openCategory"
+    >
+      <text class="main-name">{{item.name}}</text>
+      <image
+        wx:if="{{item.cover}}"
+        class="main-cover"
+        src="{{item.cover}}"
+        mode="aspectFit"
+      />
+      <text wx:else class="main-emoji" style="font-size: {{item.emojiSize}}rpx;">{{item.emoji}}</text>
+    </view>
+  </view>
+
+  <!-- 底部 banner 广告：仅流量主开通并配置广告位后显示（图库页不放广告） -->
+  <view wx:if="{{showBanner}}" class="ad-wrap">
+    <ad
+      unit-id="{{bannerUnitId}}"
+      ad-type="banner"
+      ad-theme="white"
+      binderror="onAdError"
+    ></ad>
+  </view>
+
+  <!-- ICP 备案信息 -->
+  <view class="icp" bindtap="openICP">
+    <text class="icp-text">京ICP备2026075613号-1X</text>
+  </view>
+</view>

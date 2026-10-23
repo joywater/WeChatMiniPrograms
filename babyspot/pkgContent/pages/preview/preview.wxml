@@ -1,0 +1,8 @@
+<view class="stage" bindtap="close" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+  <image class="pic {{switching ? 'slide' : ''}}" src="{{src}}" mode="aspectFit" />
+  <view class="tip">
+    <text class="tip-label" wx:if="{{hasList}}">{{label}} · {{index + 1}}/{{total}}</text>
+    <text class="tip-label" wx:else>{{label}}</text>
+    <text class="tip-hint">{{hasList ? '左右滑动切换 · 轻点返回' : '轻点任意位置返回'}} · 适合 0-6 个月，每次 1-2 分钟</text>
+  </view>
+</view>

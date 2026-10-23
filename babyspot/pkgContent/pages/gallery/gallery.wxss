@@ -1,0 +1,249 @@
+/* ---- 连播开关 ---- */
+.auto-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20rpx 24rpx 0;
+}
+
+.auto-btn {
+  display: flex;
+  align-items: center;
+  padding: 12rpx 28rpx;
+  border-radius: 40rpx;
+  background: #FFFFFF;
+  box-shadow: 0 4rpx 12rpx rgba(120, 90, 60, 0.10);
+}
+
+.auto-btn.auto-on {
+  background: #4A3B32;
+}
+
+.auto-icon {
+  font-size: 24rpx;
+  color: #4A3B32;
+}
+
+.auto-text {
+  margin-left: 8rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #4A3B32;
+}
+
+.auto-on .auto-icon,
+.auto-on .auto-text {
+  color: #FFFFFF;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 14px;
+}
+
+/* ---- 常见 / 进阶 板块标题 ---- */
+.sec-head {
+  display: flex;
+  align-items: center;
+  padding: 26rpx 28rpx 0;
+}
+
+.sec-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #4A3B32;
+}
+
+.sec-line {
+  flex: 1;
+  height: 2rpx;
+  margin-left: 20rpx;
+  background: rgba(120, 90, 60, 0.14);
+  border-radius: 2rpx;
+}
+
+/* ---- 单次时长提醒浮层 ---- */
+.rest-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(74, 59, 50, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.rest-card {
+  width: 560rpx;
+  padding: 56rpx 48rpx 44rpx;
+  background: #FFFFFF;
+  border-radius: 36rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20rpx 60rpx rgba(74, 59, 50, 0.3);
+}
+
+.rest-emoji {
+  font-size: 96rpx;
+  line-height: 1.2;
+}
+
+.rest-title {
+  margin-top: 20rpx;
+  font-size: 38rpx;
+  font-weight: 700;
+  color: #4A3B32;
+}
+
+.rest-sub {
+  margin-top: 14rpx;
+  font-size: 28rpx;
+  color: #8A7566;
+  line-height: 1.6;
+}
+
+.rest-btn {
+  margin-top: 40rpx;
+  padding: 20rpx 88rpx;
+  border-radius: 44rpx;
+  background: #F2708A;
+  color: #FFFFFF;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.card {
+  width: 31%;
+  margin-right: 3.5%;
+  margin-bottom: 13px;
+  background: #FFFFFF;
+  border-radius: 26rpx;
+  padding: 14rpx 14rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6rpx 16rpx rgba(120, 90, 60, 0.08);
+  border: 5rpx solid transparent;
+  transition: transform 0.18s ease-out, box-shadow 0.18s ease-out, border-color 0.18s ease-out;
+}
+
+/* ---- 正在播放特效：上浮放大 + 描边光晕 + 图片跳动 + 声浪徽章 ---- */
+.card.playing {
+  border-color: #F2708A;
+  transform: translateY(-10rpx) scale(1.06);
+  box-shadow: 0 14rpx 34rpx rgba(242, 112, 138, 0.38);
+}
+
+.card.playing .card-img,
+.card.playing .card-emoji {
+  animation: img-bounce 0.62s ease-in-out infinite alternate;
+}
+
+@keyframes img-bounce {
+  from { transform: scale(1); }
+  to   { transform: scale(1.12); }
+}
+
+/* 声浪徽章：右上角白底胶囊内三根跳动声柱 */
+.eq {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  width: 76rpx;
+  height: 48rpx;
+  border-radius: 24rpx;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 4rpx 10rpx rgba(242, 112, 138, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eq-bar {
+  width: 8rpx;
+  border-radius: 4rpx;
+  background: #F2708A;
+  margin: 0 4rpx;
+  animation: eq-jump 0.5s ease-in-out infinite alternate;
+}
+
+.eq-b1 { height: 16rpx; animation-delay: 0s; }
+.eq-b2 { height: 30rpx; animation-delay: 0.16s; }
+.eq-b3 { height: 22rpx; animation-delay: 0.32s; }
+
+@keyframes eq-jump {
+  from { transform: scaleY(0.45); }
+  to   { transform: scaleY(1); }
+}
+
+/* 每行第 3 个去掉右边距 */
+.card-end {
+  margin-right: 0;
+}
+
+.card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 180rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+
+.card-emoji {
+  font-size: 140rpx;
+  line-height: 1;
+}
+
+.card-label {
+  margin-top: 14rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #4A3B32;
+}
+
+.card.playing .card-label {
+  color: #F2708A;
+}
+
+.empty {
+  margin-top: 160rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-emoji {
+  font-size: 100rpx;
+}
+
+.empty-text {
+  margin-top: 24rpx;
+  font-size: 28rpx;
+  color: #A08A78;
+}
+
+.credit {
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+
+.credit-text {
+  font-size: 20rpx;
+  color: #C4B3A4;
+}

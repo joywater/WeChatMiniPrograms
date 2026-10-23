@@ -1,0 +1,56 @@
+.stage {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 图案主体：尽量占满屏宽，保留呼吸感 */
+.pic {
+  width: 92vw;
+  height: 92vw;
+}
+
+/* 切换动画：轻微淡入 + 上移，柔和不刺激 */
+.slide {
+  animation: bw-slide 0.35s ease-out;
+}
+
+@keyframes bw-slide {
+  from {
+    opacity: 0.2;
+    transform: translateY(24rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tip {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(30rpx + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tip-label {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.tip-hint {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: #B9B9B9;
+}

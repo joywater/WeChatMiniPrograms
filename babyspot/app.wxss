@@ -1,0 +1,24 @@
+/* 全局样式 —— 温暖柔和的亲子风格 */
+page {
+  background: #FFF6EC;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+  color: #4A3B32;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 48rpx;
+  box-sizing: border-box;
+}
+
+/* 通用卡片按压动画 */
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.92); }
+  70% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pop {
+  animation: pop 0.45s ease;
+}
