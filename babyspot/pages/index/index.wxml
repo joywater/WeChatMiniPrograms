@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="hero">
+    <text class="hero-title">0-3岁认知启蒙</text>
+    <text class="hero-sub">每天10分钟，开启宝宝的第一堂认知课</text>
+  </view>
+
+  <!-- 主卡片：标题左上 + 插画右下 -->
+  <view class="main-grid">
+    <view
+      wx:for="{{mainCards}}"
+      wx:key="id"
+      class="main-card"
+      style="background: linear-gradient(155deg, {{item.light}} 0%, #FFFFFF 130%);"
+      data-id="{{item.id}}"
+      data-name="{{item.name}}"
+      data-placeholder="{{item.placeholder}}"
+      bindtap="openCategory"
+    >
+      <view wx:if="{{item.placeholder}}" class="soon-badge">敬请期待</view>
+      <text class="main-name">{{item.name}}</text>
+      <text class="main-emoji" style="font-size: {{item.emojiSize}}rpx;">{{item.emoji}}</text>
+    </view>
+  </view>
+</view>

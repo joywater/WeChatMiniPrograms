@@ -1,0 +1,61 @@
+.hero {
+  padding: 48rpx 12rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 54rpx;
+  font-weight: 700;
+  color: #4A3B32;
+}
+
+.hero-sub {
+  margin-top: 12rpx;
+  font-size: 30rpx;
+  color: #A08A78;
+}
+
+/* ---- 主卡片：标题左上 + 插画右下 ---- */
+.main-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.main-card {
+  position: relative;
+  width: 48%;
+  height: 300rpx;
+  margin-bottom: 24rpx;
+  border-radius: 36rpx;
+  padding: 34rpx 32rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  box-shadow: 0 6rpx 18rpx rgba(120, 90, 60, 0.08);
+}
+
+.soon-badge {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 24rpx;
+  color: #A08A78;
+}
+
+.main-name {
+  font-size: 42rpx;
+  font-weight: 600;
+  color: #4A3B32;
+}
+
+.main-emoji {
+  position: absolute;
+  right: 14rpx;
+  bottom: 0rpx;
+  line-height: 1.25;
+}

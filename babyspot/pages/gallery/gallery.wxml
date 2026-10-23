@@ -1,0 +1,35 @@
+<view class="page">
+  <view class="grid">
+    <view
+      wx:for="{{items}}"
+      wx:key="id"
+      class="card {{item.rowEnd ? 'card-end' : ''}} {{playingId === item.id ? 'pop' : ''}}"
+      data-id="{{item.id}}"
+      data-label="{{item.label}}"
+      data-say="{{item.say}}"
+      data-sfx="{{item.sfx}}"
+      data-audio="{{item.audio}}"
+      bindtap="tapCard"
+    >
+      <view class="card-img-wrap" style="background: {{tint}};">
+        <image
+          wx:if="{{item.src}}"
+          class="card-img"
+          src="{{item.src}}"
+          mode="aspectFill"
+        />
+        <text wx:else class="card-emoji">{{item.emoji}}</text>
+      </view>
+      <text class="card-label">{{item.label}}</text>
+    </view>
+  </view>
+
+  <view wx:if="{{!items.length}}" class="empty">
+    <text class="empty-emoji">🐣</text>
+    <text class="empty-text">这个分类还没有图片</text>
+  </view>
+
+  <view wx:if="{{showCredit}}" class="credit">
+    <text class="credit-text">动物音效来自 Wikimedia Commons（CC0 / CC BY-SA 4.0）</text>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+{
+  "compileType": "miniprogram",
+  "miniprogramRoot": "./",
+  "appid": "wxbce259ccde236dd3",
+  "projectname": "babyspot",
+  "libVersion": "latest",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false,
+    "packNpmManually": false,
+    "useCompilerPlugins": ["typescript"],
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "enhance": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "condition": {},
+  "simulatorPluginLibVersion": {},
+  "packOptions": {
+    "ignore": [
+      { "type": "file", "value": "preview.html" },
+      { "type": "file", "value": "README.md" },
+      { "type": "folder", "value": "scripts" },
+      { "type": "suffix", "value": ".js" }
+    ],
+    "include": []
+  },
+  "editorSetting": {}
+}
