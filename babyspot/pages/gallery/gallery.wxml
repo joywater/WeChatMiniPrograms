@@ -1,0 +1,66 @@
+<view class="page">
+  <!-- 连播开关（无音频分类不显示） -->
+  <view class="auto-bar" wx:if="{{!silent}}">
+    <view class="auto-btn {{autoPlaying ? 'auto-on' : ''}}" bindtap="toggleAuto">
+      <text class="auto-icon">{{autoPlaying ? '⏹' : '▶'}}</text>
+      <text class="auto-text">{{autoPlaying ? '停止连播' : '连播播放'}}</text>
+    </view>
+  </view>
+
+  <!-- 按「常见 / 进阶」板块分组渲染；仅一个板块时不显示标题 -->
+  <view wx:for="{{groups}}" wx:for-item="group" wx:for-index="gi" wx:key="title">
+    <view wx:if="{{multiSection}}" class="sec-head">
+      <text class="sec-title">{{group.title}}</text>
+      <view class="sec-line"></view>
+    </view>
+    <view class="grid">
+      <view
+        wx:for="{{group.items}}"
+        wx:key="id"
+        class="card {{item.rowEnd ? 'card-end' : ''}} {{playingId === item.id ? 'playing' : ''}}"
+        data-id="{{item.id}}"
+        data-label="{{item.label}}"
+        data-sfx="{{item.sfx}}"
+        data-audio="{{item.audio}}"
+        bindtap="tapCard"
+      >
+        <view class="card-img-wrap" style="background: {{tint}};">
+          <image
+            wx:if="{{item.src}}"
+            class="card-img"
+            src="{{item.src}}"
+            mode="{{silent ? 'aspectFit' : 'aspectFill'}}"
+          />
+          <text wx:else class="card-emoji">{{item.emoji}}</text>
+          <!-- 正在播放：跳动声浪徽章 -->
+          <view class="eq" wx:if="{{playingId === item.id}}">
+            <view class="eq-bar eq-b1"></view>
+            <view class="eq-bar eq-b2"></view>
+            <view class="eq-bar eq-b3"></view>
+          </view>
+        </view>
+        <text class="card-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{!groups.length}}" class="empty">
+    <text class="empty-emoji">🐣</text>
+    <text class="empty-text">这个分类还没有图片</text>
+  </view>
+
+  <view wx:if="{{showCredit}}" class="credit">
+    <text class="credit-text">动物音效来自 Wikimedia Commons（CC0 / CC BY-SA 4.0）</text>
+  </view>
+
+  <!-- 单次时长提醒：每累计 10 分钟弹出 -->
+  <view wx:if="{{showRest}}" class="rest-mask" catchtouchmove="noop">
+    <view class="rest-card">
+      <text class="rest-emoji">🌟</text>
+      <text class="rest-title">玩得真棒！</text>
+      <text class="rest-sub">已经看了10分钟啦</text>
+      <text class="rest-sub">让小眼睛休息一下吧～</text>
+      <view class="rest-btn" bindtap="dismissRest">再玩一会儿</view>
+    </view>
+  </view>
+</view>

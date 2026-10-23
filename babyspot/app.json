@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/gallery/gallery",
+    "pages/preview/preview"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFF6EC",
+    "navigationBarTitleText": "宝宝认一认",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFF6EC"
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}
